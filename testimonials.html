@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Testimonials | Global Website Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Testimonials page specific styles */
+        .testimonials-main {
+            background-color: var(--light);
+        }
+        
+        .testimonial-categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .category-btn.active {
+            background: var(--gradient);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .testimonial-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .client-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .client-details h4 {
+            margin-bottom: 5px;
+        }
+        
+        .client-company {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .client-location {
+            color: var(--gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin-top: 10px;
+        }
+        
+        .results-section {
+            background: var(--gradient);
+            color: white;
+            border-radius: var(--radius);
+            padding: 60px;
+            margin-top: 80px;
+        }
+        
+        .results-section h2, .results-section p {
+            color: white;
+        }
+        
+        .results-section h2::after {
+            background: white;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .result-item {
+            text-align: center;
+        }
+        
+        .result-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .result-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .video-testimonials {
+            margin-top: 80px;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .video-placeholder {
+            background: var(--gradient-light);
+            border-radius: var(--radius);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+            
+            .results-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="logo-text">Global<span>Website</span>Studio</div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="process.html">Process</a></li>
+                    <li><a href="testimonials.html" class="active">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="tel:+27640034131" class="btn btn-primary">Call Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span><i class="fas fa-chevron-right"></i></span>
+                    <span>Testimonials</span>
+                </div>
+                <h1>Client Success Stories</h1>
+                <p>Don't just take our word for it. Read what our international clients have to say about working with Global Website Studio and the results we've delivered for their businesses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Main -->
+    <section class="testimonials-main">
+        <div class="container">
+            <div class="testimonial-categories">
+                <button class="category-btn active" data-category="all">All Testimonials</button>
+                <button class="category-btn" data-category="ecommerce">E-commerce</button>
+                <button class="category-btn" data-category="corporate">Corporate Websites</button>
+                <button class="category-btn" data-category="startup">Startups</button>
+                <button class="category-btn" data-category="international">International</button>
+            </div>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card" data-category="ecommerce,international">
+                    <div class="testimonial-content">
+                        "Global Website Studio transformed our online store for international markets. Our conversion rate increased by 45% after the redesign, and the multilingual support has been invaluable for our European expansion."
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">MS</div>
+                        <div class="client-details">
+                            <h4>Michael Schmidt</h4>
+                            <div class="client-company">CEO, GlobalTech Solutions</div>
+                            <div class="client-location">
+                                <i class="fas fa-map-marker-alt"></i> Berlin, Germany
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card" data-category="corporate,international">
+                    <div class="testimonial-content">
+                        "Working with this team was a game-changer for our corporate website. The attention to detail and understanding of our global brand guidelines resulted in a website that truly represents our multinational corporation."
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">AR</div>
+                        <div class="client-details">
+                            <h4>Amara Rodriguez</h4>
+                            <div class="client-company">Marketing Director, EuroConnect</div>
+                            <div class="client-location">
+                                <i class="fas fa-map-marker-alt"></i> Madrid, Spain
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card" data-category="startup">
+                    <div class="testimonial-content">
+                        "As a startup, we needed a website that could scale with our growth. Global Website Studio delivered beyond our expectations. Our site loads incredibly fast and has helped us secure funding from international investors."
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">TK</div>
+                        <div class="client-details">
+                            <h4>Thomas Keller</h4>
+                            <div class="client-company">Founder, TechNova</div>
+                            <div class="client-location">
+                                <i class="fas fa-map-marker-alt"></i> Zurich, Switzerland
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card" data-category="ecommerce">
+                    <div class="testimonial-content">
+                        "The e-commerce platform they built for us handles thousands of transactions daily without a hitch. The international payment integrations and multi-currency support have been flawless. Highly recommended!"
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">LS</div>
+                        <div class="client-details">
+                            <h4>Lisa Chen</h4>
+                            <div class="client-company">Owner, LuxeGlobal Retail</div>
+                            <div class="client-location">
+                                <i class="fas fa-map-marker-alt"></i> Singapore
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card" data-category="corporate,international">
+                    <div class="testimonial-content">
+                        "Professional, creative, and incredibly responsive. Our corporate website now serves as our primary sales tool, generating qualified leads from across three continents. The ROI has been exceptional."
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">JB</div>
+                        <div class="client-details">
+                            <h4>James Bennett</h4>
+                            <div class="client-company">CEO, Global Industries Ltd.</div>
+                            <div class="client-location">
+                                <i class="fas fa-map-marker-alt"></i> London, UK
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card" data-category="startup,international">
+                    <div class="testimonial-content">
+                        "From concept to launch, the team was amazing. They understood our vision for a global SaaS platform and delivered a website that's both beautiful and highly functional. Our user signups increased by 300% post-launch."
+                    </div>
+                    <div class="client-info">
+                        <div class="client-avatar">SP</div>
+                        <div class="client-details">
+                            <h4>Sarah Peterson</h4>
+                            <div class="client-company">Co-founder, CloudSolutions</div>
+                            <div class="client-location">
+                                <i class="fas fa-map-marker-alt"></i> San Francisco, USA
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Results Section -->
+            <div class="results-section">
+                <h2 class="text-center">Measurable Results</h2>
+                <p class="text-center" style="max-width: 700px; margin: 0 auto 30px;">The success of our clients is our success. Here are some of the results we've helped achieve across various projects.</p>
+                
+                <div class="results-grid">
+                    <div class="result-item">
+                        <div class="result-number">45%</div>
+                        <div class="result-text">Average increase in conversion rates</div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-number">60%</div>
+                        <div class="result-text">Faster page load times on average</div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-number">300%</div>
+                        <div class="result-text">Increase in international traffic</div>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-number">98%</div>
+                        <div class="result-text">Client satisfaction rate</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Testimonials -->
+            <div class="video-testimonials">
+                <h2 class="text-center">Video Testimonials</h2>
+                <p class="text-center" style="max-width: 800px; margin: 0 auto 20px;">Hear directly from our clients about their experiences working with Global Website Studio.</p>
+                
+                <div class="video-grid">
+                    <div class="video-item">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h4 style="margin-top: 15px;">Michael Schmidt Interview</h4>
+                        <p>CEO of GlobalTech Solutions discusses website transformation</p>
+                    </div>
+                    
+                    <div class="video-item">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h4 style="margin-top: 15px;">Amara Rodriguez Testimonial</h4>
+                        <p>Marketing Director shares results of corporate website project</p>
+                    </div>
+                    
+                    <div class="video-item">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h4 style="margin-top: 15px;">Startup Success Story</h4>
+                        <p>How TechNova used their website to secure funding</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Global Website Studio</h3>
+                    <p>We specialize in creating powerful digital experiences for international businesses. Our mission is to help you connect with global audiences through exceptional web design and development.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="process.html"><i class="fas fa-chevron-right"></i> Our Process</a></li>
+                        <li><a href="testimonials.html"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Global Website Design</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Responsive Development</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> E-commerce Solutions</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> SEO & Digital Marketing</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multilingual Websites</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+27640034131"><i class="fas fa-phone"></i> +27 64 003 4131</a></li>
+                        <li><a href="mailto:globewebsstudio@gmail.com"><i class="fas fa-envelope"></i> globewebsstudio@gmail.com</a></li>
+                        <li><a href="https://wa.me/27640034131"><i class="fab fa-whatsapp"></i> WhatsApp Available</a></li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM SAST</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Global Website Studio. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef476f;"></i> for global businesses</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Testimonials filtering
+        function initPageScript() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    const category = btn.getAttribute('data-category');
+                    
+                    // Filter testimonials
+                    testimonialCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category').includes(category)) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        }
+    </script>
+</body>
+</html>
