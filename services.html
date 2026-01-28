@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Global Website Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Services page specific styles */
+        .services-detail {
+            background-color: var(--light);
+        }
+        
+        .service-category {
+            margin-bottom: 80px;
+        }
+        
+        .service-category:last-child {
+            margin-bottom: 0;
+        }
+        
+        .service-detail-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 50px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+            transition: var(--transition);
+        }
+        
+        .service-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background: var(--gradient-light);
+            border-radius: 10px;
+        }
+        
+        .feature-icon {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        
+        .pricing-section {
+            background: var(--gradient);
+            color: white;
+            border-radius: var(--radius);
+            padding: 60px;
+            margin-top: 80px;
+            text-align: center;
+        }
+        
+        .pricing-section h2, .pricing-section p {
+            color: white;
+        }
+        
+        .pricing-section h2::after {
+            background: white;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 300px;
+            background: var(--gradient-light);
+            border-radius: var(--radius);
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .service-detail-card {
+                padding: 30px 20px;
+            }
+            
+            .pricing-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="logo-text">Global<span>Website</span>Studio</div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="process.html">Process</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="tel:+27640034131" class="btn btn-primary">Call Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span><i class="fas fa-chevron-right"></i></span>
+                    <span>Services</span>
+                </div>
+                <h1>Our Services</h1>
+                <p>Comprehensive website solutions tailored for international businesses. We provide end-to-end services to establish, enhance, and grow your global digital presence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Detail -->
+    <section class="services-detail">
+        <div class="container">
+            <div class="service-category" id="global-design">
+                <h2 class="text-center">Global Website Design</h2>
+                <p class="text-center" style="max-width: 800px; margin: 0 auto 20px;">Creating websites that resonate with international audiences while maintaining cultural relevance.</p>
+                
+                <div class="service-image">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                
+                <div class="service-detail-card">
+                    <h3>International Design Solutions</h3>
+                    <p>We specialize in creating websites that work seamlessly across different cultures, languages, and regions. Our global design approach ensures your website appeals to diverse audiences while maintaining your brand identity.</p>
+                    
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4>Cultural Adaptation</h4>
+                                <p>Design elements tailored to cultural preferences and norms</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4>International UX/UI</h4>
+                                <p>User experiences optimized for global audiences</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4>Brand Consistency</h4>
+                                <p>Maintain brand identity across different markets</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-category" id="responsive-dev">
+                <h2 class="text-center">Responsive Development</h2>
+                <p class="text-center" style="max-width: 800px; margin: 0 auto 20px;">Mobile-first websites that deliver exceptional experiences on all devices.</p>
+                
+                <div class="service-image">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                
+                <div class="service-detail-card">
+                    <h3>Cross-Device Optimization</h3>
+                    <p>With over 60% of web traffic coming from mobile devices, we build websites that look and perform flawlessly on smartphones, tablets, and desktops. Our responsive development ensures optimal user experience regardless of device.</p>
+                    
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4>Mobile-First Approach</h4>
+                                <p>Design and development prioritizing mobile experience</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4>Performance Optimization</h4>
+                                <p>Fast loading times across all devices and connections</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4>Cross-Browser Compatibility</h4>
+                                <p>Consistent performance across all major browsers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-category" id="ecommerce">
+                <h2 class="text-center">E-commerce Solutions</h2>
+                <p class="text-center" style="max-width: 800px; margin: 0 auto 20px;">Complete online store solutions for global commerce.</p>
+                
+                <div class="service-image">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                
+                <div class="service-detail-card">
+                    <h3>Global Online Stores</h3>
+                    <p>We build powerful e-commerce platforms with international capabilities, including multi-currency support, global payment gateways, tax calculation, and shipping integrations. Scale your business globally with our comprehensive e-commerce solutions.</p>
+                    
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4>Multi-Currency Support</h4>
+                                <p>Accept payments in multiple currencies</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4>Global Payment Gateways</h4>
+                                <p>Integration with international payment processors</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4>Inventory Management</h4>
+                                <p>Advanced inventory tracking and management</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pricing-section">
+                <h2>Custom Pricing Packages</h2>
+                <p style="max-width: 700px; margin: 0 auto 30px;">We offer flexible pricing based on your specific requirements. Contact us for a customized quote tailored to your business needs.</p>
+                
+                <a href="contact.html" class="btn btn-cta">
+                    <i class="fas fa-file-invoice-dollar"></i> Get Custom Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Global Website Studio</h3>
+                    <p>We specialize in creating powerful digital experiences for international businesses. Our mission is to help you connect with global audiences through exceptional web design and development.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="process.html"><i class="fas fa-chevron-right"></i> Our Process</a></li>
+                        <li><a href="testimonials.html"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#global-design"><i class="fas fa-chevron-right"></i> Global Website Design</a></li>
+                        <li><a href="services.html#responsive-dev"><i class="fas fa-chevron-right"></i> Responsive Development</a></li>
+                        <li><a href="services.html#ecommerce"><i class="fas fa-chevron-right"></i> E-commerce Solutions</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> SEO & Digital Marketing</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multilingual Websites</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+27640034131"><i class="fas fa-phone"></i> +27 64 003 4131</a></li>
+                        <li><a href="mailto:globewebsstudio@gmail.com"><i class="fas fa-envelope"></i> globewebsstudio@gmail.com</a></li>
+                        <li><a href="https://wa.me/27640034131"><i class="fab fa-whatsapp"></i> WhatsApp Available</a></li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM SAST</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Global Website Studio. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef476f;"></i> for global businesses</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
