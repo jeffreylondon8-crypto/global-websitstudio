@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Global Website Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Contact page specific styles */
+        .contact-main {
+            background-color: var(--light);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .contact-form-container, .contact-info-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 50px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-methods {
+            margin-top: 40px;
+        }
+        
+        .contact-method-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+        
+        .contact-method-item:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-icon-large {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-light);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h4 {
+            margin-bottom: 5px;
+        }
+        
+        .contact-details a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .contact-details a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-contact {
+            margin-top: 40px;
+        }
+        
+        .social-contact h3 {
+            margin-bottom: 20px;
+        }
+        
+        .social-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 25px;
+            background: #f8f9fa;
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .social-button.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .social-button.linkedin {
+            background: #0077B5;
+            color: white;
+        }
+        
+        .social-button:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .map-section {
+            margin-top: 80px;
+        }
+        
+        .map-container {
+            background: var(--gradient-light);
+            border-radius: var(--radius);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-top: 30px;
+        }
+        
+        .faq-section {
+            margin-top: 80px;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .faq-item:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            margin-top: 0;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 20px;
+        }
+        
+        .faq-toggle {
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        @media (max-width: 768px) {
+            .contact-form-container, .contact-info-container {
+                padding: 30px 20px;
+            }
+            
+            .social-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="logo-text">Global<span>Website</span>Studio</div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="process.html">Process</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="tel:+27640034131" class="btn btn-primary">Call Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span><i class="fas fa-chevron-right"></i></span>
+                    <span>Contact</span>
+                </div>
+                <h1>Get in Touch</h1>
+                <p>Ready to take your global digital presence to the next level? Contact us today to discuss your project. We're here to answer your questions and help you achieve your business goals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Main -->
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>Send Us a Message</h2>
+                    <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" id="name" class="form-control" required placeholder="Your full name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" class="form-control" required placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="+1 (123) 456-7890">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company" class="form-label">Company Name</label>
+                            <input type="text" id="company" class="form-control" placeholder="Your company name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service" class="form-label">Service Interested In</label>
+                            <select id="service" class="form-control">
+                                <option value="">Select a service</option>
+                                <option value="global-design">Global Website Design</option>
+                                <option value="responsive-dev">Responsive Development</option>
+                                <option value="ecommerce">E-commerce Solutions</option>
+                                <option value="seo">SEO & Digital Marketing</option>
+                                <option value="multilingual">Multilingual Websites</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Project Details *</label>
+                            <textarea id="message" class="form-control" required placeholder="Tell us about your project, goals, timeline, and budget..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="contact-info-container">
+                    <h2>Contact Information</h2>
+                    <p>Get in touch with us through any of the following methods.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method-item">
+                            <div class="contact-icon-large">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Call Us</h4>
+                                <p><a href="tel:+27640034131">+27 64 003 4131</a></p>
+                                <p>Monday - Friday: 9AM - 6PM SAST</p>
+                                <p>Saturday: 10AM - 2PM SAST</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method-item">
+                            <div class="contact-icon-large">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email Us</h4>
+                                <p><a href="mailto:globewebsstudio@gmail.com">globewebsstudio@gmail.com</a></p>
+                                <p>Typically respond within 24 hours</p>
+                                <p>For urgent inquiries, please call</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method-item">
+                            <div class="contact-icon-large">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Service Areas</h4>
+                                <p>Global Reach</p>
+                                <p>Serving clients across 5 continents</p>
+                                <p>Remote consultations available worldwide</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-contact">
+                        <h3>Connect on Social Media</h3>
+                        <div class="social-buttons">
+                            <a href="https://wa.me/27640034131" class="social-button whatsapp">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="#" class="social-button linkedin">
+                                <i class="fab fa-linkedin-in"></i> LinkedIn
+                            </a>
+                            <a href="#" class="social-button">
+                                <i class="fab fa-twitter"></i> Twitter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2 class="text-center">Frequently Asked Questions</h2>
+                <p class="text-center" style="max-width: 800px; margin: 0 auto 40px;">Get answers to common questions about working with Global Website Studio.</p>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your typical project timeline?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Project timelines vary based on complexity, but typically range from 4-12 weeks. A simple brochure website may take 4-6 weeks, while a complex e-commerce platform with multiple integrations could take 10-12 weeks. We provide a detailed timeline during our initial consultation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you work with international clients in different time zones?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we regularly work with clients across different time zones. We schedule meetings at mutually convenient times and use collaboration tools that allow for asynchronous communication. Our team is flexible and accustomed to working with international clients.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your pricing structure?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer custom pricing based on project requirements. After our initial consultation, we provide a detailed quote outlining costs. We offer both fixed-price projects for well-defined scopes and time-and-materials billing for more flexible projects. Contact us for a personalized quote.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you provide ongoing maintenance and support?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer several maintenance packages to keep your website secure, up-to-date, and performing optimally. Our support plans include regular updates, security monitoring, backups, and technical support. We'll discuss maintenance options during the project planning phase.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="map-section">
+                <h2 class="text-center">Global Service Coverage</h2>
+                <p class="text-center" style="max-width: 800px; margin: 0 auto 20px;">We serve clients worldwide with remote consultations and support.</p>
+                
+                <div class="map-container">
+                    <div style="text-align: center;">
+                        <i class="fas fa-globe-americas" style="font-size: 4rem; margin-bottom: 20px;"></i>
+                        <p>Serving clients across North America, Europe, Asia,<br>Australia, and Africa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Global Website Studio</h3>
+                    <p>We specialize in creating powerful digital experiences for international businesses. Our mission is to help you connect with global audiences through exceptional web design and development.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="process.html"><i class="fas fa-chevron-right"></i> Our Process</a></li>
+                        <li><a href="testimonials.html"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Global Website Design</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Responsive Development</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> E-commerce Solutions</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> SEO & Digital Marketing</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multilingual Websites</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+27640034131"><i class="fas fa-phone"></i> +27 64 003 4131</a></li>
+                        <li><a href="mailto:globewebsstudio@gmail.com"><i class="fas fa-envelope"></i> globewebsstudio@gmail.com</a></li>
+                        <li><a href="https://wa.me/27640034131"><i class="fab fa-whatsapp"></i> WhatsApp Available</a></li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM SAST</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Global Website Studio. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef476f;"></i> for global businesses</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Contact page specific scripts
+        function initPageScript() {
+            // FAQ toggle functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close other open FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        company: document.getElementById('company').value,
+                        service: document.getElementById('service').value,
+                        message: document.getElementById('message').value
+                    };
+                    
+                    // Here you would typically send the form data to a server
+                    // For this example, we'll just show an alert
+                    alert('Thank you for your message! We will contact you within 24 hours.');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // In a real implementation, you would send the data to your server
+                    // Example using fetch API:
+                    /*
+                    fetch('/submit-contact-form', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert('Thank you for your message! We will contact you within 24 hours.');
+                        contactForm.reset();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('There was an error submitting your form. Please try again or contact us directly.');
+                    });
+                    */
+                });
+            }
+        }
+    </script>
+</body>
+</html>
