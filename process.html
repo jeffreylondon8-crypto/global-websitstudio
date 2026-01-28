@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Process | Global Website Studio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Process page specific styles */
+        .process-detail {
+            position: relative;
+        }
+        
+        .process-timeline-detailed {
+            max-width: 1000px;
+            margin: 60px auto 0;
+            position: relative;
+        }
+        
+        .process-timeline-detailed::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .process-step-detailed {
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .process-step-detailed:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .step-content-detailed {
+            flex: 1;
+            padding: 40px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .step-number-detailed {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            z-index: 2;
+            box-shadow: 0 5px 20px rgba(67, 97, 238, 0.3);
+        }
+        
+        .step-duration {
+            display: inline-block;
+            background: var(--gradient-light);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .step-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .step-feature {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .deliverables {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-top: 80px;
+        }
+        
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .deliverable-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .deliverable-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .deliverable-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-light);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+        
+        @media (max-width: 992px) {
+            .process-timeline-detailed::before {
+                left: 30px;
+            }
+            
+            .process-step-detailed {
+                flex-direction: row !important;
+                margin-left: 60px;
+            }
+            
+            .step-number-detailed {
+                left: -85px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .step-content-detailed {
+                padding: 30px 20px;
+            }
+            
+            .deliverables {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="logo-text">Global<span>Website</span>Studio</div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="process.html" class="active">Process</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="tel:+27640034131" class="btn btn-primary">Call Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span><i class="fas fa-chevron-right"></i></span>
+                    <span>Our Process</span>
+                </div>
+                <h1>Our Proven Process</h1>
+                <p>We follow a meticulous 5-step methodology to ensure your website not only meets but exceeds your business objectives. Transparency and collaboration are at the heart of our approach.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Detail -->
+    <section class="process-detail">
+        <div class="container">
+            <h2 class="text-center">The Global Website Studio Process</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 20px;">Our structured approach ensures every project is delivered on time, within budget, and to the highest quality standards.</p>
+            
+            <div class="process-timeline-detailed">
+                <!-- Step 1 -->
+                <div class="process-step-detailed">
+                    <div class="step-number-detailed">1</div>
+                    <div class="step-content-detailed">
+                        <h3>Discovery & Strategy</h3>
+                        <p class="step-duration">1-2 Weeks</p>
+                        <p>We begin with an in-depth analysis of your business, target audience, and competitive landscape. This phase includes stakeholder interviews, market research, and goal setting to establish a solid foundation for your project.</p>
+                        
+                        <div class="step-features">
+                            <div class="step-feature">Business Requirements Analysis</div>
+                            <div class="step-feature">Target Audience Research</div>
+                            <div class="step-feature">Competitive Analysis</div>
+                            <div class="step-feature">Project Scope Definition</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step-detailed">
+                    <div class="step-number-detailed">2</div>
+                    <div class="step-content-detailed">
+                        <h3>Design & Prototyping</h3>
+                        <p class="step-duration">2-3 Weeks</p>
+                        <p>Our design team creates wireframes and interactive prototypes based on the strategy phase. We focus on user experience, visual design, and brand alignment, with regular reviews and revisions based on your feedback.</p>
+                        
+                        <div class="step-features">
+                            <div class="step-feature">Wireframe Creation</div>
+                            <div class="step-feature">UI/UX Design</div>
+                            <div class="step-feature">Interactive Prototypes</div>
+                            <div class="step-feature">Design Review Sessions</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step-detailed">
+                    <div class="step-number-detailed">3</div>
+                    <div class="step-content-detailed">
+                        <h3>Development & Integration</h3>
+                        <p class="step-duration">3-5 Weeks</p>
+                        <p>Using modern technologies and best practices, we build a robust, scalable website. This phase includes front-end and back-end development, third-party integrations, and content management system implementation.</p>
+                        
+                        <div class="step-features">
+                            <div class="step-feature">Front-end Development</div>
+                            <div class="step-feature">Back-end Development</div>
+                            <div class="step-feature">Third-party Integrations</div>
+                            <div class="step-feature">CMS Implementation</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="process-step-detailed">
+                    <div class="step-number-detailed">4</div>
+                    <div class="step-content-detailed">
+                        <h3>Testing & Quality Assurance</h3>
+                        <p class="step-duration">1-2 Weeks</p>
+                        <p>We conduct comprehensive testing across devices, browsers, and regions to ensure flawless performance. This includes functionality testing, performance optimization, security audits, and user acceptance testing.</p>
+                        
+                        <div class="step-features">
+                            <div class="step-feature">Cross-browser Testing</div>
+                            <div class="step-feature">Mobile Responsiveness</div>
+                            <div class="step-feature">Performance Optimization</div>
+                            <div class="step-feature">Security Audits</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="process-step-detailed">
+                    <div class="step-number-detailed">5</div>
+                    <div class="step-content-detailed">
+                        <h3>Launch & Ongoing Support</h3>
+                        <p class="step-duration">Ongoing</p>
+                        <p>We manage the deployment process, provide training, and offer ongoing support. Our relationship continues post-launch with maintenance, updates, and analytics to ensure your website continues to perform optimally.</p>
+                        
+                        <div class="step-features">
+                            <div class="step-feature">Deployment & Launch</div>
+                            <div class="step-feature">Training & Documentation</div>
+                            <div class="step-feature">Ongoing Maintenance</div>
+                            <div class="step-feature">Performance Analytics</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Deliverables Section -->
+            <div class="deliverables">
+                <h2 class="text-center">Project Deliverables</h2>
+                <p class="text-center" style="max-width: 800px; margin: 0 auto 20px;">Throughout our process, you'll receive comprehensive documentation and assets to ensure transparency and collaboration.</p>
+                
+                <div class="deliverables-grid">
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h4>Project Documentation</h4>
+                        <p>Complete project specifications, requirements, and timelines</p>
+                    </div>
+                    
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>Design Assets</h4>
+                        <p>Wireframes, mockups, style guides, and design specifications</p>
+                    </div>
+                    
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Source Code</h4>
+                        <p>Clean, documented, and maintainable source code</p>
+                    </div>
+                    
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h4>Training Materials</h4>
+                        <p>Comprehensive documentation and training resources</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Global Website Studio</h3>
+                    <p>We specialize in creating powerful digital experiences for international businesses. Our mission is to help you connect with global audiences through exceptional web design and development.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="process.html"><i class="fas fa-chevron-right"></i> Our Process</a></li>
+                        <li><a href="testimonials.html"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Global Website Design</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Responsive Development</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> E-commerce Solutions</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> SEO & Digital Marketing</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Multilingual Websites</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+27640034131"><i class="fas fa-phone"></i> +27 64 003 4131</a></li>
+                        <li><a href="mailto:globewebsstudio@gmail.com"><i class="fas fa-envelope"></i> globewebsstudio@gmail.com</a></li>
+                        <li><a href="https://wa.me/27640034131"><i class="fab fa-whatsapp"></i> WhatsApp Available</a></li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM SAST</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Global Website Studio. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ef476f;"></i> for global businesses</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
